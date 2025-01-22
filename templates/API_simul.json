@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "name": "Soldat Ryan",
+        "lat": 48.8566,
+        "lon": 2.3522,
+        "heartbeat": 72,
+        "ambientLight": 300,
+        "obstacleDistance": 50
+    },
+    {
+        "id": 2,
+        "name": "Soldat Rose",
+        "lat": 48.8572,
+        "lon": 2.3535,
+        "heartbeat": 80,
+        "ambientLight": 250,
+        "obstacleDistance": 30
+    },
+    {
+        "id": 3,
+        "name": "Soldat Bernard",
+        "lat": 48.8580,
+        "lon": 2.3540,
+        "heartbeat": 65,
+        "ambientLight": 400,
+        "obstacleDistance": 70
+    }
+]

@@ -3,6 +3,8 @@ import os
 from flask import (Flask, redirect, render_template, request,
                    send_from_directory, url_for)
 
+from flask import request, jsonify
+
 app = Flask(__name__)
 
 
@@ -26,6 +28,41 @@ def hello():
    else:
        print('Request for hello page received with no name or blank name -- redirecting')
        return redirect(url_for('index'))
+
+
+# Lancement du Débogueur
+app.config["DEBUG"] = True
+
+# Quelques données tests pour l’annuaire sous la forme d’une liste de dictionnaires
+employees = [
+   {'id': 0,
+	'Nom': 'Dupont',
+	'Prénom': 'Jean',
+	'Fonction': 'Développeur',
+	'Ancienneté': '5'},
+   {'id': 1,
+	'Nom': 'Durand',
+	'Prénom': 'Elodie',
+	'Fonction': 'Directrice Commerciale',
+	'Ancienneté': '4'},
+   {'id': 2,
+	'Nom': 'Lucas',
+	'Prénom': 'Jérémie',
+	'Fonction': 'DRH',
+	'Ancienneté': '4'}
+]
+
+@app.route('/test', methods=['GET'])
+def home():
+ return '''<h1>Annuaire Internet</h1>
+<p>Ce site est le prototype d’une API mettant à disposition des données sur les employés d’une entreprise.</p>'''
+
+# Route permettant de récupérer toutes les données de l’annuaire
+@app.route('/api/v1/resources/employees/all', methods=['GET'])
+def api_all():
+   return jsonify(employees)
+
+
 
 
 if __name__ == '__main__':
